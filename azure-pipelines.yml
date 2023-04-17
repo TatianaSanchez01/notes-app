@@ -26,7 +26,7 @@ steps:
     scannerMode: 'CLI'
     configMode: 'manual'
     cliProjectKey: 'notes-app'
-    cliProjectName: 'Notes App'
+    cliProjectName: 'notes-app'
     cliSources: '.'
 
 - task: PowerShell@2
