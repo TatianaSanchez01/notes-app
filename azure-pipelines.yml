@@ -1,0 +1,47 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- main
+
+pool:
+  default
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '10.x'
+  displayName: 'Install Node.js'
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: 'npm install'
+
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'SonarCloud'
+    organization: 'tatianasanchez1'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: 'notes-app'
+    cliProjectName: 'Notes App'
+    cliSources: '.'
+
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: 'npm run build.azure'
+
+- task: SonarCloudAnalyze@1
+
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
+  displayName: 'SonarCloud'
+  
+- script: |
+    npm install
+    npm run build
+  displayName: 'npm install and build'
