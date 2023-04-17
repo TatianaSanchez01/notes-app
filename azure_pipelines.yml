@@ -27,7 +27,7 @@ steps:
     organization: 'tatianasanchez1'
     scannerMode: 'CLI'
     configMode: 'manual'
-    cliProjectKey: 'TatianaSanchez01_notes-app'
+    cliProjectKey: 'notes-app'
     cliProjectName: 'notes-app'
     cliSources: '.'
 
