@@ -27,8 +27,8 @@ steps:
     organization: 'tatianasanchez1'
     scannerMode: 'CLI'
     configMode: 'manual'
-    cliProjectKey: 'demoquizapp'
-    cliProjectName: 'Quiz App'
+    cliProjectKey: 'notes-app'
+    cliProjectName: 'Notes App'
     cliSources: '.'
 
 - task: PowerShell@2
